@@ -60,6 +60,10 @@ public class AuthenticationController {
 	@PostMapping("/factor")
 	public void accept(@RequestParam String factor, Principal principal,
 			HttpServletRequest request, HttpServletResponse response) throws Exception {
+		if (!"red".equals(factor)) {
+			response.sendRedirect("/factor?error=true");
+			return;
+		}
 		Authentication authentication = (Authentication) principal;
 		Collection<GrantedAuthority> authorities = new ArrayList<>(
 				authentication.getAuthorities());
