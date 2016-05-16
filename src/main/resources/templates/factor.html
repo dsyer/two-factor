@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>Two Factor</title>
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width" />
+<base href="{{contextPath}}/login" />
+<link rel="stylesheet" type="text/css"
+	href="webjars/bootstrap/css/bootstrap.min.css" />
+<script type="text/javascript" src="webjars/jquery/jquery.min.js"></script>
+<script type="text/javascript"
+	src="webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<h1>Factor</h1>
+	<div class="container">
+		{{#error}}
+		<div class="alert alert-danger">{{.}}</div>
+		{{/error}}
+		<form role="form" action="factor" method="post">
+			<div class="form-group">
+				<label for="username">Favourite Colour:</label> <input type="text"
+					class="form-control" id="factor" name="factor" />
+			</div>
+			{{#_csrf}} <input type="hidden" name="{{parameterName}}"
+				value="{{token}}" />{{/_csrf}} <br />
+			<br />
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+</body>
+</html>

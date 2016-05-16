@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: twofactor
+  mustache:
+    expose-request-attributes: true
+logging:
+  level:
+    org.springframework.security: DEBUG
+security:
+  user:
+    password: password
+  ignored: /webjars/**,/js/**,/images/**,/css/**,/**/favicon.ico
+    
