@@ -68,7 +68,7 @@ public class TwoFactorApplication extends WebSecurityConfigurerAdapter {
 				Authentication authentication = SecurityContextHolder.getContext()
 						.getAuthentication();
 				if (authentication != null && !authentication.getAuthorities()
-						.contains(new SimpleGrantedAuthority("ROLE_TWO_FACTOR"))) {
+						.contains(new SimpleGrantedAuthority("ROLE_FACTOR"))) {
 					RequestDispatcher dispatcher = request
 							.getRequestDispatcher("/factor");
 					dispatcher.forward(request, response);

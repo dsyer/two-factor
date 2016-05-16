@@ -18,6 +18,7 @@ package com.example;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -53,7 +54,11 @@ public class AuthenticationController {
 	}
 
 	@GetMapping("/factor")
-	public String factor() {
+	public String factor(@RequestParam(required = false) String error,
+			Map<String, Object> model) {
+		if (error != null) {
+			model.put("error", error);
+		}
 		return "factor";
 	}
 
